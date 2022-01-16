@@ -11,3 +11,4 @@ https://psychicsnailstudios.github.io/metronome
 * add custom song builder
 * add custom sounds support
 * add more time signatures
+* deploy to Windows and Mac
