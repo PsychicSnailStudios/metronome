@@ -1,0 +1,66 @@
+section.options {
+  background-color: transparent;
+}
+
+label.filepath {
+  text-align: left;
+  float: none;
+}
+
+.color-input {
+  max-width: 70px;
+}
+
+.bpm {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bpm-label {
+  color: var(--main-color);
+  background-color: var(--main-bg-color);
+  width: 50px;
+  border: 0px;
+}
+
+.play {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 50px solid var(--dark-color);
+    margin-left: 15px;
+}
+
+.pause {
+    width: 50px;
+    height: 50px;
+    margin: 5px 8px;
+    background-color: var(--dark-color);;
+}
+
+.play-button {
+  background-color: var(--color-1);
+  border: 0;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.play-button:hover {
+  transform: scale(1.1);
+}
+
+.visualizer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  padding: 10px auto;
+  border-radius: 25px;
+}

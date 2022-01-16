@@ -1,0 +1,35 @@
+.dot {
+  height: 30px;
+  width: 30px;
+  background-color: var(--main-marker);
+
+  border-radius: 50%;
+  display: inline-block;
+  margin: 15px auto;
+
+  transition: transform .5s;
+  transition:  background-color 1s;
+}
+.diamond {
+  height: 25px;
+  width: 25px;
+  background-color: var(--main-marker);
+
+  display: inline-block;
+  margin: 15px auto;
+  transform: rotate(45deg);
+
+  transition: transform .5s;
+  transition:  background-color 1s;
+}
+.square {
+  height: 25px;
+  width: 25px;
+  background-color: var(--main-marker);
+
+  display: inline-block;
+  margin: 15px auto;
+
+  transition: transform .5s;
+  transition:  background-color 1s;
+}

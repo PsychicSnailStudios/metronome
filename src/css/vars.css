@@ -1,0 +1,25 @@
+:root {
+  --light-bg-color: rgb(255, 255, 255);
+  --light-color: black;
+  --light-percent: 100%;
+  --light-marker: rgb(255, 255, 255);
+  --light-section-color: rgba(0, 0, 0, 0.055);
+
+  --dark-bg-color: rgb(26, 26, 26);
+  --dark-color: rgb(255, 255, 255);
+  --dark-percent: 0%;
+  --dark-marker: rgb(26, 26, 26);
+  --dark-section-color: rgba(0, 0, 0, 0.219);
+
+  --main-bg-color: var(--dark-bg-color);
+  --main-color: var(--dark-color);
+  --main-img: var(--dark-percent);
+  --main-marker: var(--dark-marker);
+  --main-section-color: var(--dark-section-color);
+
+  --color-1: #23395B;
+  --color-2: #3e81b1;
+  --color-3: #74b7cc;
+  --color-4: #73C2BE;
+
+}

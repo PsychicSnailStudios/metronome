@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Metronome</title>
+
+    <link rel="stylesheet" href="css/vars.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/shapes.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <h1 id="title">Metronome</h1>
+
+    <!-- option bar -->
+    <section class="options">
+      <a onclick="toggleSettings()" class="img-button" id="settingsButton"><img src="img/settings_white.png"></a>
+      <a onclick="toggleConfig()" class="img-button" id="configButton"><img src="img/config_white.png"></a>
+      <a href="" class="img-button"><img src="img/veiw_white.png" alt=""></a>
+    </section>
+
+    <!-- metronome configure -->
+    <section class="slide-panel" id="configPanel">
+      <br>
+      <h2>Config</h2>
+      <ul>
+        <li><label for="downbeat">play downbeat</label> <input class="checkbox" type="checkbox" id="downbeat" onchange="updateBeatToggles()"></li>
+        <li><label for="show8">play 8ths</label> <input class="checkbox" type="checkbox" id="show8" onchange="updateBeatToggles()"></li>
+        <li><label for="show16">play 16ths</label> <input class="checkbox" type="checkbox" id="show16" onchange="updateBeatToggles()"></li>
+        <li><label for="show32">play 32nds</label> <input class="checkbox" type="checkbox" id="show32" onchange="updateBeatToggles()"></li>
+        <li><label for="triples">play triplets</label> <input class="checkbox" type="checkbox" id="triples" onchange="updateBeatToggles()"></li>
+        <br>
+        <li><label for="countBeats">count beats</label> <input class="checkbox" type="checkbox" id="countBeats" onchange="updateBeatCounter()"></li>
+        <br>
+        <li>
+          <label for="timeSignature">Time Signature</label>
+          <select id="timeSignature" onchange="updateTimeSignature()">
+            <option value="4-4">4/4</option>
+          </select>
+        </li>
+        <br>
+      
+        <li>
+          <label for="sound">Sound</label>
+          <select id="sound" onchange="updateSound()">
+            <option value="click">click</option>
+          </select>
+        </li>
+      </ul>
+      <br><br>
+    </section>
+
+    <!-- settings -->
+    <section class="slide-panel" id="settingsPanel">
+      <br>
+      <h2>Settings</h2>
+      <!-- <label class="filepath" for="filePath">Filepath</label> <input id="filePath" type="text"> -->
+      <!-- <br><br> -->
+    
+      <div>
+        <label for="color1">Note Color</label>
+        <span class="square color-label color-1"></span>
+        <input class="color-input" type="text" id="color1" onchange="setColor(1)">
+      </div>
+    
+      <div>
+        <label for="color3">8th Note Color</label>
+        <span class="square color-label color-3"></span>
+        <input class="color-input" type="text" id="color3" onchange="setColor(3)">
+      </div>
+      
+      <div>
+        <label for="color2">16th Note Color</label>
+        <span class="square color-label color-2"></span>
+        <input class="color-input" type="text" id="color2" onchange="setColor(2)">
+      </div>
+    
+      <div>
+        <label for="color4">32nd Note Color</label>
+        <span class="square color-label color-4"></span>
+        <input class="color-input" type="text" id="color4" onchange="setColor(4)">
+      </div>
+      <br>
+    
+      <label for="isDark">dark mode</label> <input class="checkbox" type="checkbox" id="isDark" onchange="toggleDarkMode()">
+    
+      <br><br>
+    </section>
+
+    <!-- metronome -->
+    <section>
+      <br>
+      <button id="playButton" class="play-button" onclick="onStartStop()">
+        <div id="playPauseIcon" class="play"></div>
+      </button>
+
+      <div class="bpm">
+        <a class="img-button" onclick="onChangeBPM(-1)"><img src="img/minus_white.png" alt=""></a>
+        <span id="bpmLabel" ondblclick="openBPM()">120</span> <span class="label" ondblclick="openBPM()">BPM</span>
+        <a class="img-button" onclick="onChangeBPM(1)"><img src="img/add_white.png" alt=""></a>
+      </div>
+
+      <div class="beat-count">
+        <h1 id="beatCount">1</h1>
+        <br>
+      </div>
+    </section>
+
+    <!-- edit bpm -->
+    <section class="slide-panel" id="bpmPanel">
+      <h3>New BPM</h3>
+      <input type="number" value="120" id="editBPM" onchange="closeBPM()">
+      <a class="button" onclick="closeBPM()">x</a>
+      <br>
+      <br>
+    </section>
+
+    <!-- visualizer -->
+    <section class="visualizer">
+      <span name="4ths" class="dot"></span>
+      <span name="4ths" class="dot"></span>
+      <span name="4ths" class="dot"></span>
+      <span name="4ths" class="dot"></span>
+
+      <span name="16ths" class="dot"></span>
+      <span name="16ths" class="dot"></span>
+      <span name="16ths" class="dot"></span>
+      <span name="16ths" class="dot"></span>
+      
+      <span name="8ths" class="dot"></span>
+      <span name="8ths" class="dot"></span>
+      <span name="8ths" class="dot"></span>
+      <span name="8ths" class="dot"></span>
+
+      <span name="32nds" class="dot"></span>
+      <span name="32nds" class="dot"></span>
+      <span name="32nds" class="dot"></span>
+      <span name="32nds" class="dot"></span>
+    </section>
+
+  </body>
+
+  <script src="scripts/model/Metronome.js"></script>
+  
+  <script src="scripts/panelToggle.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/settings.js"></script>
+
+</html>
