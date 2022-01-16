@@ -1,5 +1,6 @@
 let _configIsOpen = false;
 let _settingsIsOpen = false;
+let _helpIsOpen = false;
 
 function toggleConfig() {
     _configIsOpen = !_configIsOpen;
@@ -11,6 +12,30 @@ function toggleSettings() {
     setSettings(_settingsIsOpen)
 }
 
+function toggleHelp() {
+    _helpIsOpen = !_helpIsOpen;
+    setHelp(_helpIsOpen)
+}
+
+function setHelp(b) {
+    let ct = document.getElementById('helpPanel');
+
+    if (b) {
+        ct.style.display = "block";
+        if (_settingsIsOpen) {
+            toggleSettings()
+        }
+        if (_configIsOpen) {
+            toggleConfig()
+        }
+        document.getElementById('helpButton').classList.add('on');
+    }
+    else {
+        ct.style.display = "none";
+        document.getElementById('helpButton').classList.remove('on');
+    }
+}
+
 function setConfig(b) {
     let ct = document.getElementById('configPanel');
 
@@ -18,6 +43,9 @@ function setConfig(b) {
         ct.style.display = "block";
         if (_settingsIsOpen) {
             toggleSettings()
+        }
+        if (_helpIsOpen) {
+            toggleHelp()
         }
         document.getElementById('configButton').classList.add('on');
     }
@@ -34,6 +62,9 @@ function setSettings(b) {
         ct.style.display = "block";
         if (_configIsOpen) {
             toggleConfig()
+        }
+        if (_helpIsOpen) {
+            toggleHelp()
         }
         document.getElementById('settingsButton').classList.add('on');
     }
