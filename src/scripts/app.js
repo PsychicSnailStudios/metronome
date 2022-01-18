@@ -1,7 +1,7 @@
 let CurrentBPM = 120;
 let AppMetronome = new Metronome(CurrentBPM);
 
-let _randomNames = ['Metronome', 'Metrognome', 'Blep', 'Bleep', 'Bloop', 'Boop', 'Beep']
+let _randomNames = ['Metronome', 'Metrognome', 'Blep', 'Bleep', 'Bloop', 'Boop', 'Beep', 'Pitter', 'Patter', 'Click', 'Clack']
 
 let _playPauseIcon = document.getElementById('playPauseIcon');
 let _playButton = document.getElementById('playButton');
