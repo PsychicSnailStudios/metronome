@@ -4,8 +4,7 @@ class Song {
         this.bPM = bpm;
         this.countdown = countdown;
         this.measures = measures; // measure array
-        this.useCustomMeasureOrder = useCustomMeasureOrder; // bool
-        this.customMeasureOrder = customMeasureOrder; // string array // uses measure's name e.g. "Into,Course,Verse,Course,Verse,Course,Course,Intro"
+        this.customMeasureOrder = customMeasureOrder; // uses measure's name e.g. "Into,Course,Verse,Course,Verse,Course,Course,Intro"
     }
 }
 
