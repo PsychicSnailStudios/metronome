@@ -1,0 +1,59 @@
+button, input.button {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 0;
+    border-radius: 10px;
+    padding: 4px 8px;
+    display: inline-block;
+    transition: all .1s;
+}
+button:hover, input.button:hover {
+    background-color: var(--color-1);
+    transform: scale(1.05);
+    transition: all .1s;
+}
+
+a.button {
+    background-color: transparent;
+    transition: all .1s;
+    border: 0;
+    border-radius: 25px;
+    padding: 4px 8px;
+    display: inline-block;
+}
+a.button:hover {
+    background-color: rgb(255, 51, 51);
+    transition: all .1s;
+}
+
+.section {
+    background-color: var(--main-section-color);
+    border-radius: 25px;
+
+    padding: 2%;
+    margin: 2%;
+
+    text-align: center;
+}
+
+.new-song {
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+
+}
+
+.new-section {
+
+}
+
+.button-panel {
+
+}
+
+.text-input {
+
+}
+
+.number-input {
+
+}

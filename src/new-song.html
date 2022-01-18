@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Metronome</title>
+
+    <link rel="stylesheet" href="css/vars.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/shapes.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/new-song.css" />
+</head>
+
+<body>
+    <h1 id="title">New Song</h1>
+
+    <form action="">
+        <div class="new-song section">
+            <h4>Song Properties</h4>
+
+            <label for="name" title="The name of the song">Song Name</label>
+            <input class="text-input" type="text" id="name" placeholder="Seas of Cheese">
+        
+            <label for="bpm" title="How fast the song is">Song BPM</label>
+            <input class="number-input" type="number" id="bpm" placeholder="120">
+        
+            <label for="preCount" title="How many beats to wait before starting the song">Countdown Length</label>
+            <input class="number-input" type="number" id="preCount" placeholder="4">
+
+            <label for="sectionOrder" title="The order of the sections in the song as a comma seperated list.">Section Order</label>
+            <input class="text-input" type="text" id="sectionOrder" placeholder="Into,Course,Verse,Course,Verse,Course,Course,Intro">
+
+            <br><br>
+        </div>
+        
+        <div class="new-section section">
+            <h4>New Section</h4>
+        
+            <label for="sectionName" title="The name of the song section">Section Name</label>
+            <input class="text-input" type="text" id="sectionName" placeholder="Verse">
+        
+            <label for="measures" title="How many measures are in this section">Section Measures</label>
+            <input class="number-input" type="number" id="measures" placeholder="15">
+            
+            <br>
+            <label for="timeSignature" title="The sections time signature">Time Signature</label>
+            <select id="timeSignature">
+                <option value="4-4">4/4</option>
+            </select>
+        
+            <!-- add event suport here in the future -->
+            <br><br>
+        </div>
+        
+        <div class="button-panel section">
+            <button id="newSection">New Section</button>
+            
+            <input class="button" type="submit" value="Create New Song">
+            
+            <a class="button" href="index.html">Cancel</a>
+        </div>
+    </form>
+
+    <!-- <section class="footer"> -->
+    <!-- <p>copyrite 2022 psychic snail studios</p> -->
+    <!-- </section> -->
+
+</body>
+
+</html>
