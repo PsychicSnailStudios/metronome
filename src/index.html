@@ -29,7 +29,7 @@
       <br>
       <h2>Tips</h2>
       <ul>
-        <li>You can double-click the BPM to edit it</li><br>
+        <li>You can click the BPM to edit it</li><br>
         <li>Adjust colors or toggle dark mode in the settings tab (gear icon)</li><br>
         <li>Change the subdivisions or toggle the beat counter in the config tab (wrench icon)</li>
       </ul>
@@ -109,7 +109,7 @@
 
       <div class="bpm">
         <a class="img-button" onclick="onChangeBPM(-1)"><img src="img/minus_white.png" alt=""></a>
-        <span id="bpmLabel" ondblclick="openBPM()">120</span> <span class="label" ondblclick="openBPM()">BPM</span>
+        <span id="bpmLabel" onclick="openBPM()">120</span> <span class="label" ondblclick="openBPM()">BPM</span>
         <a class="img-button" onclick="onChangeBPM(1)"><img src="img/add_white.png" alt=""></a>
       </div>
 
@@ -157,6 +157,7 @@
 
   </body>
 
+  <script src="scripts/model/AppSettings.js"></script>
   <script src="scripts/model/Metronome.js"></script>
   
   <script src="scripts/panelToggle.js"></script>

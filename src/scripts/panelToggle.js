@@ -71,6 +71,8 @@ function setSettings(b) {
     else {
         ct.style.display = "none";
         document.getElementById('settingsButton').classList.remove('on');
+
+        saveSettings();
     }
 }
 

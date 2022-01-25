@@ -11,11 +11,19 @@ let EMarkers = document.getElementsByName('16ths');
 let AndMarkers = document.getElementsByName('8ths');
 let AMarkers = document.getElementsByName('32nds');
 
+let ApplicationSettings = JSON.parse(localStorage.getItem('settings'));
+
 pageLoad();
 
 function pageLoad() {
-    document.getElementById('bpmLabel').innerHTML = CurrentBPM;
+    if (ApplicationSettings == null) {
+        ApplicationSettings = new AppSettings(['#23395B', '#3e81b1', '#74b7cc', '#73C2BE'], true);
+        localStorage.setItem('settings', JSON.stringify(ApplicationSettings));
+    }
 
+    console.log("Loaded Settings Object:", ApplicationSettings);
+    
+    document.getElementById('bpmLabel').innerHTML = CurrentBPM;
     document.getElementById('title').innerHTML = _randomNames[Math.floor(Math.random() * _randomNames.length)];;
 }
 

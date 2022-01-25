@@ -1,8 +1,10 @@
-class Settings {
-    constructor(colors, sounds, loops) {
+class AppSettings {
+    constructor(colors, darkMode) {
         this.colors = colors; // string array
-        this.sounds = sounds; // SoundFile array
-        this.loops = loops; // SoundFile array
+        this.darkMode = darkMode; // bool
+
+        // this.sounds = sounds; // SoundFile array
+        // this.loops = loops; // SoundFile array
     }
 }
 

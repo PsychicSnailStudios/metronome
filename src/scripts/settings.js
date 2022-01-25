@@ -15,12 +15,20 @@ loadSettings();
 
 function loadSettings()
 {
+    DarkMode = ApplicationSettings.darkMode;
+    if (DarkMode) {
+        setStyleDark();
+    }
+    else {
+        setStyleLight();
+    }
+
     document.getElementById('isDark').checked = DarkMode;
 
-    document.getElementById('color1').value = '#23395B';
-    document.getElementById('color2').value = '#3e81b1';
-    document.getElementById('color3').value = '#74b7cc';
-    document.getElementById('color4').value = '#73C2BE';
+    document.getElementById('color1').value = ApplicationSettings.colors[0];
+    document.getElementById('color2').value = ApplicationSettings.colors[1];
+    document.getElementById('color3').value = ApplicationSettings.colors[2];
+    document.getElementById('color4').value = ApplicationSettings.colors[3];
 
     document.getElementById('downbeat').checked = PlayDownbeat;
     document.getElementById('show8').checked = Play8thNotes;
@@ -33,6 +41,19 @@ function loadSettings()
     
     document.getElementById('timeSignature').querySelectorAll('option')[0].selected = 'selected';
     document.getElementById('sound').querySelectorAll('option')[0].selected = 'selected';
+}
+
+function saveSettings() {
+    ApplicationSettings.darkMode = document.getElementById('isDark').checked;
+
+    ApplicationSettings.colors[0] = document.getElementById('color1').value;
+    ApplicationSettings.colors[1] = document.getElementById('color2').value;
+    ApplicationSettings.colors[2] = document.getElementById('color3').value;
+    ApplicationSettings.colors[3] = document.getElementById('color4').value;
+
+    localStorage.setItem('settings', JSON.stringify(ApplicationSettings));
+
+    console.log("Saved Settings Object:", ApplicationSettings);
 }
 
 function toggleDarkMode() {
