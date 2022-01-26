@@ -34,6 +34,7 @@ function loadSettings()
     document.getElementById('color2').value = ApplicationSettings.colors[1];
     document.getElementById('color3').value = ApplicationSettings.colors[2];
     document.getElementById('color4').value = ApplicationSettings.colors[3];
+    updateColors();
 
     document.getElementById('downbeat').checked = PlayDownbeat;
     document.getElementById('show8').checked = Play8thNotes;
@@ -82,6 +83,13 @@ function setStyleLight() {
     _docRoot.style.setProperty('--main-img', 'var(--light-percent)');
     _docRoot.style.setProperty('--main-marker', 'var(--light-marker)');
     _docRoot.style.setProperty('--main-section-color', 'var(--light-section-color)');
+}
+
+function updateColors() {
+    setColor(1);
+    setColor(2);
+    setColor(3);
+    setColor(4);
 }
 
 function setColor(id) {
@@ -173,4 +181,8 @@ function updateBeatCounter() {
     else {
         document.getElementById('beatCount').style.display = "none";
     }
+}
+
+function resetSettings() {
+    localStorage.clear();
 }

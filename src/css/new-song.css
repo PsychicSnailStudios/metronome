@@ -13,19 +13,6 @@ button:hover, input.button:hover {
     transition: all .1s;
 }
 
-a.button {
-    background-color: transparent;
-    transition: all .1s;
-    border: 0;
-    border-radius: 25px;
-    padding: 4px 8px;
-    display: inline-block;
-}
-a.button:hover {
-    background-color: rgb(255, 51, 51);
-    transition: all .1s;
-}
-
 .section {
     background-color: var(--main-section-color);
     border-radius: 25px;
