@@ -1,4 +1,4 @@
-# ![](https://github.com/PsychicSnailStudios/metronome/raw/main/src/icons/png/48x48.png) Metronome v 0.7.1
+# ![](https://github.com/PsychicSnailStudios/metronome/raw/main/src/icons/png/48x48.png) Metronome v 0.8.0
 A simple visual metronome with support for custom songs
 
 https://psychicsnailstudios.github.io/metronome
