@@ -41,13 +41,12 @@
       <br>
       <h2>Config</h2>
       <ul>
-        <li><label for="downbeat">play downbeat</label> <input class="checkbox" type="checkbox" id="downbeat" onchange="updateBeatToggles()"></li>
-        <li><label for="show8">play 8ths</label> <input class="checkbox" type="checkbox" id="show8" onchange="updateBeatToggles()"></li>
-        <li><label for="show16">play 16ths</label> <input class="checkbox" type="checkbox" id="show16" onchange="updateBeatToggles()"></li>
-        <li><label for="show32">play 32nds</label> <input class="checkbox" type="checkbox" id="show32" onchange="updateBeatToggles()"></li>
+        <li><label for="downbeat">play downbeat</label> <input class="switch" type="checkbox" id="downbeat" onchange="updateBeatToggles()"></li>
+        <li><label for="show8">play 8ths</label> <input class="switch" type="checkbox" id="show8" onchange="updateBeatToggles()"></li>
+        <li><label for="show16">play 16ths</label> <input class="switch" type="checkbox" id="show16" onchange="updateBeatToggles()"></li>
+        <li><label for="show32">play 32nds</label> <input class="switch" type="checkbox" id="show32" onchange="updateBeatToggles()"></li><br>
         <!-- <li><label for="triples">play triplets</label> <input class="checkbox" type="checkbox" id="triples" onchange="updateBeatToggles()"></li> -->
-        <br>
-        <li><label for="countBeats">count beats</label> <input class="checkbox" type="checkbox" id="countBeats" onchange="updateBeatCounter()"></li>
+        <li><label for="countBeats">count beats</label> <input class="switch" type="checkbox" id="countBeats" onchange="updateBeatCounter()"></li>
         <br>
         <li>
           <label for="timeSignature">Time Signature</label>
@@ -100,7 +99,7 @@
       </div>
       <br>
     
-      <label for="isDark">dark mode</label> <input class="checkbox" type="checkbox" id="isDark" onchange="toggleDarkMode()">
+      <label for="isDark">dark mode</label> <input class="switch" type="checkbox" id="isDark" onchange="toggleDarkMode()">
     
       <br><br>
     </section>
