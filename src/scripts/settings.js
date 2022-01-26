@@ -25,6 +25,11 @@ function loadSettings()
 
     document.getElementById('isDark').checked = DarkMode;
 
+    document.getElementById('timeSignature').querySelectorAll('option')[2].selected = 'selected';
+    updateTimeSignature();
+
+    document.getElementById('sound').querySelectorAll('option')[0].selected = 'selected';
+
     document.getElementById('color1').value = ApplicationSettings.colors[0];
     document.getElementById('color2').value = ApplicationSettings.colors[1];
     document.getElementById('color3').value = ApplicationSettings.colors[2];
@@ -34,15 +39,11 @@ function loadSettings()
     document.getElementById('show8').checked = Play8thNotes;
     document.getElementById('show16').checked = Play16thNotes;
     document.getElementById('show32').checked = Play32ndNotes;
-    document.getElementById('triples').checked = PlayTripletNotes;
-    updateBeatToggles()
+    // document.getElementById('triples').checked = PlayTripletNotes;
+    updateBeatToggles();
 
-    updateBeatCounter()
+    updateBeatCounter();
     
-    document.getElementById('timeSignature').querySelectorAll('option')[2].selected = 'selected';
-    updateTimeSignature();
-
-    document.getElementById('sound').querySelectorAll('option')[0].selected = 'selected';
 }
 
 function saveSettings() {
@@ -110,36 +111,44 @@ function updateBeatToggles()
     Play8thNotes = document.getElementById('show8').checked;
     Play16thNotes = document.getElementById('show16').checked;
     Play32ndNotes = document.getElementById('show32').checked;
-    PlayTripletNotes = document.getElementById('triples').checked;
+    // PlayTripletNotes = document.getElementById('triples').checked;
+
+    adjustVisualizer(QuarterMarkers);
 
     if (Play8thNotes) {
-        AndMarkers.forEach(and => {
-            and.style.display = "inline-block";
-        });
+        adjustVisualizer(AndMarkers);
     }
     else {
-        AndMarkers.forEach(and => {
-            and.style.display = "none";
-        });
+        hideObjects(AndMarkers);
     }
 
     if (Play16thNotes) {
-        EMarkers.forEach(e => {
-            e.style.display = "inline-block";
-        });
-
-        AMarkers.forEach(a => {
-            a.style.display = "inline-block";
-        });
+        adjustVisualizer(EMarkers);
+        adjustVisualizer(AMarkers);
     }    
     else {
-        EMarkers.forEach(e => {
-            e.style.display = "none";
-        });
+        hideObjects(EMarkers);
+        hideObjects(AMarkers);
+    }
+}
 
-        AMarkers.forEach(a => {
-            a.style.display = "none";
-        });
+function hideObjects(o) {
+    o.forEach(a => {
+        a.style.display = "none";
+    });
+}
+
+function showObjects(o) {
+    o.forEach(a => {
+        a.style.display = "inline-block";
+    });
+}
+
+function adjustVisualizer(v) {
+    hideObjects(v);
+
+    for (let i = 0; i < MetronomeTimeSignature; i++) {
+        v[i].style.display = "inline-block";
     }
 }
 
@@ -147,6 +156,9 @@ function updateTimeSignature() {
     MetronomeTimeSignature = Number(document.getElementById('timeSignature').value);
 
     AppMetronome.signature = MetronomeTimeSignature;
+    _docRoot.style.setProperty('--visualizer-count', MetronomeTimeSignature);
+
+    updateBeatToggles();
 }
 
 function updateSound() {
