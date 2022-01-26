@@ -156,6 +156,7 @@ function updateTimeSignature() {
     MetronomeTimeSignature = Number(document.getElementById('timeSignature').value);
 
     AppMetronome.signature = MetronomeTimeSignature;
+    AppMetronome.currentNote = 1;
     _docRoot.style.setProperty('--visualizer-count', MetronomeTimeSignature);
 
     updateBeatToggles();
