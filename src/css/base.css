@@ -1,7 +1,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
-  max-width: 38rem;
+  max-width: 88rem;
   padding: 2rem;
   color: var(--main-color);
   background-color: var(--main-bg-color);
@@ -28,7 +28,7 @@ label {
 section {
   background-color: var(--main-section-color);
   margin: 1% auto;
-  width: 60%;
+  width: 100%;
   text-align: center;
   border-radius: 25px;
   padding: 5 0px;

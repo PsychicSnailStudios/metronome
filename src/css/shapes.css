@@ -1,6 +1,9 @@
+.dot, .square, .diamond {
+  height: 5rem;
+  width: 5rem;
+}
+
 .dot {
-  height: 30px;
-  width: 30px;
   background-color: var(--main-marker);
 
   border-radius: 50%;
@@ -11,8 +14,6 @@
   transition:  background-color 1s;
 }
 .diamond {
-  height: 25px;
-  width: 25px;
   background-color: var(--main-marker);
 
   display: inline-block;
@@ -23,8 +24,6 @@
   transition:  background-color 1s;
 }
 .square {
-  height: 25px;
-  width: 25px;
   background-color: var(--main-marker);
 
   display: inline-block;
@@ -32,4 +31,32 @@
 
   transition: transform .5s;
   transition:  background-color 1s;
+}
+
+@media screen and (max-width:1062px) {
+  .dot, .square, .diamond {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+@media screen and (max-width:890px) {
+  .dot, .square, .diamond {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+@media screen and (max-width:720px) {
+  .dot, .square, .diamond {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width:557px) {
+  .dot, .square, .diamond {
+    height: 1rem;
+    width: 1rem;
+  }
 }
