@@ -8,5 +8,4 @@ https://psychicsnailstudios.github.io/metronome
 * get a proper name XD
 * add custom song support
 * add custom sounds support
-* update UI to look better on desktop and phone
 * deploy to Windows and Mac
