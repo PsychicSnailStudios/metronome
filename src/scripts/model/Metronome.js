@@ -9,6 +9,7 @@ class Metronome {
         this.nextNoteTime = 0.0;     // when the next note is due
         this.isRunning = false;
         this.intervalID = null;
+        this.signature = 4;
     }
 
     nextNote() {
@@ -17,7 +18,7 @@ class Metronome {
         this.nextNoteTime += secondsPerBeat; // Add beat length to last beat time
 
         this.currentNote++;    // Advance the beat number, wrap to zero
-        if (this.currentNote == 33) {
+        if (this.currentNote == (this.signature * 8) + 1) {
             this.currentNote = 1;
         }
     }

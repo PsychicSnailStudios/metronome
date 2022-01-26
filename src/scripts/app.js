@@ -35,6 +35,7 @@ function onStartStop() {
     }
     else {
         _playPauseIcon.className = 'play';
+        clearMarkers();
     }
 }
 
@@ -80,8 +81,72 @@ function onBeat(beatNumber, time, audioContext) {
     const b32 = 1000;
     const noSound = 0;
 
-    // 1.e.+.a.2.e.+.a.3.e.+.a.4.e.+.a.
-    switch (beatNumber) {
+    let beat = Math.ceil(beatNumber / 8);
+    let subBeat = beatNumber % 8;
+
+    // 1.e.+.a. 2.e.+.a. 3.e.+.a. 4.e.+.a.
+    switch (subBeat) {
+        case 1:
+            clearMarkers();
+            osc.frequency.value = b4;
+
+            if (beatNumber == 1 && PlayDownbeat) {
+                osc.frequency.value = down;
+            }
+            
+            document.getElementById('beatCount').innerHTML = beat.toString();
+
+            QuarterMarkers[beat - 1].classList.add('color-1');
+            break;
+        case 3:
+            if (Play16thNotes) {
+                clearMarkers();
+                osc.frequency.value = b16;
+                document.getElementById('beatCount').innerHTML = 'e';
+                EMarkers[beat - 1].classList.add('color-2');
+            }
+            else {
+                osc.frequency.value = noSound;
+            }
+            break;
+        case 5:
+            if (Play8thNotes) {
+                clearMarkers();
+                osc.frequency.value = b8;
+                document.getElementById('beatCount').innerHTML = '&';
+                AndMarkers[beat - 1].classList.add('color-3');
+            }
+            else {
+                osc.frequency.value = noSound;
+            }
+            break;
+        case 7:
+            if (Play16thNotes) {
+                clearMarkers();
+                osc.frequency.value = b16;
+                document.getElementById('beatCount').innerHTML = 'a';
+                AMarkers[beat - 1].classList.add('color-2');
+            }
+            else {
+                osc.frequency.value = noSound;
+            }
+            break;
+
+        default:
+            /* console.error('NULL beat error');
+            osc.frequency.value = noSound; */
+
+            if (Play32ndNotes) {
+                osc.frequency.value = b32;
+                document.getElementById('beatCount').innerHTML = '.';
+            }
+            else {
+                osc.frequency.value = noSound;
+            }
+            break;
+    }
+
+    /* switch (beatNumber) {
         case 1:
             clearMarkers();
             QuarterMarkers[0].classList.add('color-1');
@@ -106,7 +171,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 3:
             if (Play16thNotes) {
                 clearMarkers();
-            osc.frequency.value = b16;
+                osc.frequency.value = b16;
                 document.getElementById('beatCount').innerHTML = 'e';
                 EMarkers[0].classList.add('color-2');
             }
@@ -116,7 +181,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 4:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -136,7 +201,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 6:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -146,7 +211,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 7:
             if (Play16thNotes) {
                 clearMarkers();
-            osc.frequency.value = b16;
+                osc.frequency.value = b16;
                 document.getElementById('beatCount').innerHTML = 'a';
                 AMarkers[0].classList.add('color-2');
             }
@@ -156,7 +221,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 8:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -171,7 +236,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 10:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -181,7 +246,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 11:
             if (Play16thNotes) {
                 clearMarkers();
-            osc.frequency.value = b16;
+                osc.frequency.value = b16;
                 document.getElementById('beatCount').innerHTML = 'e';
                 EMarkers[1].classList.add('color-2');
             }
@@ -191,7 +256,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 12:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -201,7 +266,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 13:
             if (Play8thNotes) {
                 clearMarkers();
-            osc.frequency.value = b8;
+                osc.frequency.value = b8;
                 document.getElementById('beatCount').innerHTML = '&';
                 AndMarkers[1].classList.add('color-3');
             }
@@ -211,7 +276,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 14:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -221,7 +286,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 15:
             if (Play16thNotes) {
                 clearMarkers();
-            osc.frequency.value = b16;
+                osc.frequency.value = b16;
                 document.getElementById('beatCount').innerHTML = 'a';
                 AMarkers[1].classList.add('color-2');
             }
@@ -231,7 +296,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 16:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -246,7 +311,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 18:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -266,7 +331,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 20:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -276,7 +341,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 21:
             if (Play8thNotes) {
                 clearMarkers();
-            osc.frequency.value = b8;
+                osc.frequency.value = b8;
                 document.getElementById('beatCount').innerHTML = '&';
                 AndMarkers[2].classList.add('color-3');
             }
@@ -286,7 +351,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 22:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -306,7 +371,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 24:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -321,7 +386,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 26:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -331,7 +396,7 @@ function onBeat(beatNumber, time, audioContext) {
         case 27:
             if (Play16thNotes) {
                 clearMarkers();
-            osc.frequency.value = b16;
+                osc.frequency.value = b16;
                 document.getElementById('beatCount').innerHTML = 'e';
                 EMarkers[3].classList.add('color-2');
             }
@@ -341,7 +406,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 28:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -361,7 +426,7 @@ function onBeat(beatNumber, time, audioContext) {
             break;
         case 30:
             if (Play32ndNotes) {
-            osc.frequency.value = b32;
+                osc.frequency.value = b32;
                 document.getElementById('beatCount').innerHTML = '.';
             }
             else {
@@ -393,7 +458,7 @@ function onBeat(beatNumber, time, audioContext) {
             console.error('NULL beat error');
             osc.frequency.value = noSound;
             break;
-    }
+    } */
 
     envelope.gain.value = 1;
     envelope.gain.exponentialRampToValueAtTime(1, time + 0.001);

@@ -9,7 +9,7 @@ let Play32ndNotes = false;
 let PlayTripletNotes = false;
 
 let MetronomeSound = 'click';
-let MetronomeTimeSignature = '4-4';
+let MetronomeTimeSignature = 4;
 
 loadSettings();
 
@@ -39,7 +39,9 @@ function loadSettings()
 
     updateBeatCounter()
     
-    document.getElementById('timeSignature').querySelectorAll('option')[0].selected = 'selected';
+    document.getElementById('timeSignature').querySelectorAll('option')[2].selected = 'selected';
+    updateTimeSignature();
+
     document.getElementById('sound').querySelectorAll('option')[0].selected = 'selected';
 }
 
@@ -142,7 +144,9 @@ function updateBeatToggles()
 }
 
 function updateTimeSignature() {
-    MetronomeTimeSignature = document.getElementById('timeSignature').value;
+    MetronomeTimeSignature = Number(document.getElementById('timeSignature').value);
+
+    AppMetronome.signature = MetronomeTimeSignature;
 }
 
 function updateSound() {
